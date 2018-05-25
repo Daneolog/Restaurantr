@@ -1,0 +1,18 @@
+<h1>
+Types
+</h1>
+<input type="text" [(value)]="name">
+<div>
+    <button (click)="addType($event)">Add Type</button>
+</div>
+
+<!-- <input [(ngModel)]="hero.name" placeholder = "name"> -->
+<!-- <button (click)="goBack()">go back</button> -->
+
+<div *ngIf="types.length">
+    <div *ngFor="let t of types">
+        {{t}}
+    </div>
+</div>
+
+
