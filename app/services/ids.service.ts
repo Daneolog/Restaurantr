@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Response } from "@angular/http";
 import { Observable } from "rxjs";
 
-import { map } from "rxjs/operators";
+import { map, switchMap } from "rxjs/operators";
 
 const ID_API = "/api/ids";
 
@@ -18,12 +18,21 @@ export class IdsService {
     );
   }
 
-  incrementRestaurantId(currentIds): Observable<number> {
-    return this.http
-      .put(`${ID_API}`, {
-        ...currentIds,
-        restaurants: currentIds["restaurants"] + 1
+  incrementRestaurantId(): Observable<Response> {
+    return this.getLatestRestaurantId().pipe(
+      switchMap(data => {
+        let counter = data["restaurants"] + 1;
+        return this.http.put(`${ID_API}`, { ...data, restaurants: counter });
       })
-      .pipe(map((response: Response) => response.json()));
+    );
+  }
+
+  decrementRestaurantId(): Observable<Response> {
+    return this.getLatestRestaurantId().pipe(
+      switchMap(data => {
+        let counter = data["restaurants"] - 1;
+        return this.http.put(`${ID_API}`, { ...data, restaurants: counter });
+      })
+    );
   }
 }

@@ -21,6 +21,9 @@ export class RestaurantComponent {
   }
 
   delete(item: Restaurant) {
-    this.data = this.data.filter((value, index, array) => value.id != item.id);
+    this.service.deleteRestaurant(item).subscribe(data => console.log(data));
+    this.service.getRestaurants().subscribe(data => (this.data = data));
+
+    console.log(this.data);
   }
 }

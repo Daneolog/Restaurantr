@@ -25,16 +25,20 @@ export class RestaurantService {
   }
 
   addRestaurant(restaurant: Restaurant): Observable<Restaurant> {
-    return this.ids
-      .getLatestRestaurantId()
-      .pipe(
-        switchMap(data => {
-          restaurant = { ...restaurant, id: data["restaurants"] + 1 };
-          this.ids.incrementRestaurantId(data).subscribe();
-          return this.http.post(`${RESTAURANT_API}`, restaurant);
-        })
-      )
-      .pipe(map((response: Response) => response.json()));
+    return this.ids.incrementRestaurantId().pipe(
+      switchMap(data => {
+        console.log(
+          "incremented successfully, # of restaurants now at",
+          data.json()["restaurants"]
+        );
+
+        let newRestaurant = { ...restaurant, id: data.json()["restaurants"] };
+        console.log("posting new restaurant", newRestaurant);
+        return this.http
+          .post(`${RESTAURANT_API}`, newRestaurant)
+          .pipe(map(response => response.json()));
+      })
+    );
   }
 
   updateRestaurant(restaurant: Restaurant): Observable<Restaurant> {
@@ -44,8 +48,22 @@ export class RestaurantService {
   }
 
   deleteRestaurant(restaurant: Restaurant): Observable<Restaurant> {
-    return this.http
-      .delete(`${RESTAURANT_API}/${restaurant.id}`)
-      .pipe(map((response: Response) => response.json()));
+    return this.ids.decrementRestaurantId().pipe(
+      switchMap(data => {
+        console.log(
+          "decremented successfully, # of restaurants now at",
+          data.json()["restaurants"]
+        );
+
+        console.log("deleting restaurant", restaurant);
+        return this.http
+          .delete(`${RESTAURANT_API}/${restaurant.id}`)
+          .pipe(map(response => response.json()));
+      })
+    );
+
+    // return this.http
+    //   .delete(`${RESTAURANT_API}/${restaurant.id}`)
+    //   .pipe(map((response: Response) => response.json()));
   }
 }

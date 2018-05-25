@@ -1,6 +1,6 @@
 {
   "ids": {
-    "restaurants": 2,
+    "restaurants": 1,
     "types": 11
   },
   "restaurants": [
@@ -10,13 +10,6 @@
       "typeId": 1,
       "minutesWalking": 5,
       "lastVisited": 0
-    },
-    {
-      "name": "Applebaes",
-      "typeId": "3",
-      "minutesWalking": 4,
-      "lastVisited": "2018-05-09",
-      "id": 2
     }
   ],
   "types": [
