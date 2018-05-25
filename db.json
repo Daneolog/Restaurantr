@@ -1,14 +1,22 @@
 {
   "ids": {
-    "restaurants": 1,
+    "restaurants": 2,
     "types": 11
   },
   "restaurants": [
     {
+      "id": 1,
       "name": "Applebees",
       "typeId": 1,
       "minutesWalking": 5,
       "lastVisited": 0
+    },
+    {
+      "name": "Applebaes",
+      "typeId": "3",
+      "minutesWalking": 4,
+      "lastVisited": "2018-05-09",
+      "id": 2
     }
   ],
   "types": [

@@ -66,9 +66,14 @@ export class RestaurantFormComponent implements OnInit {
   }
 
   submit(value: Restaurant) {
-    console.log(value);
-    value = { ...value, id: this.restaurant.id };
-    this.service.updateRestaurant(value).subscribe(data => console.log(data));
+    if (this.editing) {
+      console.log("editing");
+      value = { ...value, id: this.restaurant.id };
+      this.service.updateRestaurant(value).subscribe(data => console.log(data));
+    } else {
+      console.log("adding");
+      this.service.addRestaurant(value).subscribe(data => console.log(data));
+    }
   }
 
   back() {
