@@ -1,11 +1,14 @@
 {
+  "ids": {
+    "restaurants": 1,
+    "types": 11
+  },
   "restaurants": [
     {
-      "name": "beepo",
+      "name": "Applebees",
       "typeId": 1,
       "minutesWalking": 5,
-      "lastVisited": "2018-05-15",
-      "id": 1
+      "lastVisited": 0
     }
   ],
   "types": [

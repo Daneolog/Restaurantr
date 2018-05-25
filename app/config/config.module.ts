@@ -5,6 +5,7 @@ import { HttpModule } from "@angular/http";
 import { FormsModule } from "@angular/forms";
 
 import { RestaurantService } from "../services/restaurant.service";
+import { IdsService } from "../services/ids.service";
 
 import { ConfigComponent } from "./components/config.component";
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
@@ -30,6 +31,6 @@ const routes: Routes = [
     FormsModule
   ],
   exports: [],
-  providers: [RestaurantService]
+  providers: [RestaurantService, IdsService]
 })
 export class ConfigModule {}
