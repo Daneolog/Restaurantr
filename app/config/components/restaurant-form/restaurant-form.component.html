@@ -1,26 +1,31 @@
-<div style="width: 100%">
-  <h1>Restaurants</h1>
-  <div>
-    <input type="text" placeholder="new restaurant">
-    <a>
-      <img [src]="src_add">
-    </a>
-  </div>
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Actions</th>
-    </tr>
-    <tr *ngFor="let item of data">
-      <td>{{item.name}}</td>
-      <td>
-        <a>
-          <img [src]="src_edit">
-        </a>
-        <button (click)="delete(item)">
-          <img [src]="src_delete">
-        </button>
-      </td>
-    </tr>
-  </table>
-</div>
+<form (ngSubmit)="submit(form.value)" #form="ngForm" style="width: 100%" novalidate>
+  <h2 hidden="editing">Add</h2>
+  <h2 hidden="!editing">Edit</h2>
+
+  <!-- name -->
+  <label>Restaurant name</label>
+  <input name="name" type="text" [ngModel]="restaurant?.name">
+  <br>
+
+  <!-- type -->
+  <label>Type</label>
+  <select name="typeId" [ngModel]="restaurant?.typeId">
+    <option *ngFor="let choice of options" [value]="choice.id" [selected]="choice.id === restaurant?.typeId">
+      {{choice.type}}
+    </option>
+  </select>
+  <br>
+
+  <!-- minutes walking -->
+  <label>Minutes walking</label>
+  <input name="minutesWalking" type="number" [ngModel]="restaurant?.minutesWalking">
+  <br>
+
+  <!-- last visited -->
+  <label>Last visited</label>
+  <input name="lastVisited" type="date" [ngModel]="restaurant?.lastVisited">
+  <br>
+
+  <button type="submit">Submit</button>
+</form>
+<button (click)="back()">Return</button>

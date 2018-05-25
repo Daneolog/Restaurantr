@@ -1,8 +1,8 @@
 <div style="width: 100%">
   <h1>Restaurants</h1>
   <div>
-    <input type="text" placeholder="new restaurant">
-    <a routerLink="add">
+    <input type="text" placeholder="new restaurant" [(ngModel)]="name"> {{name}}
+    <a routerLink="add/{{name}}/">
       <img [src]="src_add">
     </a>
   </div>

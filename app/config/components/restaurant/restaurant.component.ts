@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
+
 import { Restaurant } from "../../../models/restaurant.interface";
+import { RestaurantService } from "../../../services/restaurant.service";
 
 @Component({
   selector: "restaurant",
@@ -12,20 +14,13 @@ export class RestaurantComponent {
   src_delete = "../../../img/remove.png";
 
   data: Restaurant[];
+  name;
 
-  constructor() {
-    this.data = [
-      {
-        id: 1,
-        name: "Applebees",
-        type: { type: "Misc Food" },
-        minutesWalking: 5
-      }
-    ];
+  constructor(private service: RestaurantService) {
+    this.service.getRestaurants().subscribe(data => (this.data = data));
   }
 
   delete(item: Restaurant) {
-    console.log("deleted", item);
     this.data = this.data.filter((value, index, array) => value.id != item.id);
   }
 }
