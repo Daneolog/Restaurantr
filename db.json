@@ -1,1 +1,53 @@
-{}
+{
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Applebees",
+      "type": 1,
+      "minutesWalking": 5,
+      "lastVisited": 0
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "type": "Misc. Food"
+    },
+    {
+      "id": 2,
+      "type": "Italian"
+    },
+    {
+      "id": 3,
+      "type": "Fast Food"
+    },
+    {
+      "id": 4,
+      "type": "Asian"
+    },
+    {
+      "id": 5,
+      "type": "Mexican"
+    },
+    {
+      "id": 6,
+      "type": "Sandwichy"
+    },
+    {
+      "id": 7,
+      "type": "BBQ"
+    },
+    {
+      "id": 8,
+      "type": "Greek"
+    },
+    {
+      "id": 9,
+      "type": "Indian"
+    },
+    {
+      "id": 10,
+      "type": "Pizza"
+    }
+  ]
+}

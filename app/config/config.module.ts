@@ -5,6 +5,8 @@ import { RouterModule, Routes } from "@angular/router";
 import { ConfigComponent } from "./components/config.component";
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
 import { RestaurantFormComponent } from "./components/restaurant-form/restaurant-form.component";
+import { HttpModule } from "@angular/http";
+import { RestaurantService } from "../services/restaurant.service";
 
 const routes: Routes = [
   {
@@ -19,7 +21,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [ConfigComponent, RestaurantComponent, RestaurantFormComponent],
-  imports: [CommonModule, RouterModule.forChild(routes)],
-  exports: []
+  imports: [CommonModule, RouterModule.forChild(routes), HttpModule],
+  exports: [],
+  providers: [RestaurantService]
 })
 export class ConfigModule {}
