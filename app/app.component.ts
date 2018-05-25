@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 interface Nav {
   link: string;
   name: string;
-  exact: boolean;
+  exact?: boolean;
 }
 
 @Component({
@@ -26,14 +26,12 @@ interface Nav {
 export class AppComponent {
   nav: Nav[] = [
     {
-      link: "/",
-      name: "Home",
-      exact: true
+      link: "/display",
+      name: "Home"
     },
     {
       link: "/config",
-      name: "Config",
-      exact: true
+      name: "Config"
     }
   ];
 }

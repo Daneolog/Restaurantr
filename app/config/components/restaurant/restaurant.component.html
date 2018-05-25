@@ -1,0 +1,26 @@
+<div style="width: 100%">
+  <h1>Restaurants</h1>
+  <div>
+    <input type="text" placeholder="new restaurant">
+    <a routerLink="add">
+      <img [src]="src_add">
+    </a>
+  </div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Actions</th>
+    </tr>
+    <tr *ngFor="let item of data">
+      <td>{{item.name}}</td>
+      <td>
+        <a routerLink="edit/{{item.id}}">
+          <img [src]="src_edit">
+        </a>
+        <button (click)="delete(item)">
+          <img [src]="src_delete">
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

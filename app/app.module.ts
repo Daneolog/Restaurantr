@@ -10,8 +10,9 @@ import { DisplayComponent } from "./display/components/display.component";
 import { ConfigComponent } from "./config/components/config.component";
 
 const routes: Routes = [
-  { path: "", component: DisplayComponent, pathMatch: "full" },
-  { path: "config", component: ConfigComponent, pathMatch: "full" }
+  { path: "", redirectTo: "display", pathMatch: "full" },
+  { path: "display", component: DisplayComponent },
+  { path: "config", component: ConfigComponent }
 ];
 
 @NgModule({
