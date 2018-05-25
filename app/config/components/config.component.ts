@@ -21,5 +21,14 @@ export class ConfigComponent implements OnInit {
     this.restaurantService
       .getRestaurant(1)
       .subscribe((data: Restaurant) => (this.restaurant = data));
+    this.restaurantService
+      .addRestaurant({
+        id: -1,
+        name: "Boi",
+        typeId: 1,
+        minutesWalking: 5,
+        lastVisited: new Date()
+      })
+      .subscribe((restaurant: Restaurant) => console.log(restaurant));
   }
 }

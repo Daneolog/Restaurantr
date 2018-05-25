@@ -1,4 +1,8 @@
 {
+  "ids": {
+    "restaurants": 3,
+    "types": 11
+  },
   "restaurants": [
     {
       "id": 1,
@@ -6,6 +10,20 @@
       "type": 1,
       "minutesWalking": 5,
       "lastVisited": 0
+    },
+    {
+      "id": 2,
+      "name": "Boi",
+      "typeId": 1,
+      "minutesWalking": 5,
+      "lastVisited": "2018-05-25T19:41:56.038Z"
+    },
+    {
+      "id": 3,
+      "name": "Boi",
+      "typeId": 1,
+      "minutesWalking": 5,
+      "lastVisited": "2018-05-25T19:42:02.837Z"
     }
   ],
   "types": [
