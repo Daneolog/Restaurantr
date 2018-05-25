@@ -4,4 +4,5 @@ export interface Restaurant {
   name: string;
   type: RestaurantType;
   minutesWalking: number;
+  lastVisited: Date;
 }
