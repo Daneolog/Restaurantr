@@ -10,7 +10,7 @@ const ID_API = "/api/ids";
 export class IdsService {
   constructor(private http: Http) {}
 
-  getLatestRestaurantId(): Observable<any> {
+  getLatestIds(): Observable<any> {
     return this.http.get(`${ID_API}`).pipe(
       map((response: Response) => {
         return response.json();
@@ -19,7 +19,7 @@ export class IdsService {
   }
 
   incrementRestaurantId(): Observable<Response> {
-    return this.getLatestRestaurantId().pipe(
+    return this.getLatestIds().pipe(
       switchMap(data => {
         let counter = data["restaurants"] + 1;
         return this.http.put(`${ID_API}`, { ...data, restaurants: counter });
@@ -28,10 +28,28 @@ export class IdsService {
   }
 
   decrementRestaurantId(): Observable<Response> {
-    return this.getLatestRestaurantId().pipe(
+    return this.getLatestIds().pipe(
       switchMap(data => {
         let counter = data["restaurants"] - 1;
         return this.http.put(`${ID_API}`, { ...data, restaurants: counter });
+      })
+    );
+  }
+
+  incrementTypeId(): Observable<Response> {
+    return this.getLatestIds().pipe(
+      switchMap(data => {
+        let counter = data["types"] + 1;
+        return this.http.put(`${ID_API}`, { ...data, types: counter });
+      })
+    );
+  }
+
+  decrementTypeId(): Observable<Response> {
+    return this.getLatestIds().pipe(
+      switchMap(data => {
+        let counter = data["types"] - 1;
+        return this.http.put(`${ID_API}`, { ...data, types: counter });
       })
     );
   }
