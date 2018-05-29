@@ -2,6 +2,9 @@ import { Component, Input } from "@angular/core";
 import { RestaurantType } from "../../../models/restaurant-type.interface";
 import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
+import { TypesService } from '../../../services/types.service'
+import { switchMap } from "rxjs/operators";
+import { RestaurantService } from "../../../services/restaurant.service";
 
 @Component({
   selector: "type-config",
@@ -9,27 +12,29 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ["type-config.component.scss"]
 })
 export class TypeConfigComponent {
-  @Input() typetoAdd: string;
-  name: string = "Alex";
+  src_delete = "../../../img/remove.png";
+
+  name: string = '';
   types: string[] = [];
+  data:  RestaurantType[];
 
-  typeLists: RestaurantType[] = [
-    {
-      id: 0,
-      type: "Misc."
-    },
-    {
-      id: 1,
-      type: "Italian"
-    },
-    {
-      id: 2,
-      type: "FastFood"
-    }
-  ];
+  constructor(private service: TypesService, private service2: RestaurantService) {
+    this.service.getTypes().subscribe(data => {
+      this.data = data;
+      console.log(this.data);
+    });
+  }
 
-  addType(event: any): void {
-    this.name = event.target.value;
-    this.types = [...this.types, this.name];
+  addType(): void {
+    //this.data = [...this.data, { id: 1000, type: this.name }];
+    this.service.addType({ id: 1000, type: this.name }).pipe(switchMap(data => this.service.getTypes())).subscribe(data => this.data = data);
+    this.service.getTypes().subscribe(data => this.data = data);
+  }
+
+  delete(item: RestaurantType) {
+    this.service
+      .deleteRestaurant(item)
+      .pipe(switchMap(data => this.service.getTypes()))
+      .subscribe(data => (this.data = data));
   }
 }
