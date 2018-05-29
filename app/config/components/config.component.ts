@@ -3,6 +3,7 @@ import { RestaurantService } from "../../services/restaurant.service";
 import { Restaurant } from "../../models/restaurant.interface";
 
 import { map } from "rxjs/operators";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-config",

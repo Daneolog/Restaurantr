@@ -10,6 +10,7 @@ import { IdsService } from "../services/ids.service";
 import { ConfigComponent } from "./components/config.component";
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
 import { RestaurantFormComponent } from "./components/restaurant-form/restaurant-form.component";
+import { TypeConfigComponent } from "./components/type-config/type-config.component";
 
 const routes: Routes = [
   {
@@ -23,7 +24,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ConfigComponent, RestaurantComponent, RestaurantFormComponent],
+  declarations: [
+    ConfigComponent,
+    RestaurantComponent,
+    RestaurantFormComponent,
+    TypeConfigComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
