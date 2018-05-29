@@ -1,25 +1,13 @@
 {
   "ids": {
     "restaurants": 1,
-    "types": 11
+    "types": 10
   },
   "settings": {
     "minTime": 0
   },
-  "restaurants": [
-    {
-      "name": "Opplebaes",
-      "typeId": 1,
-      "minutesWalking": 5,
-      "lastVisited": "2018-05-28",
-      "id": 1
-    }
-  ],
+  "restaurants": [],
   "types": [
-    {
-      "id": 1,
-      "type": "Misc. Food"
-    },
     {
       "id": 2,
       "type": "Italian"
