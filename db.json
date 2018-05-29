@@ -1,12 +1,20 @@
 {
   "ids": {
-    "restaurants": 2,
-    "types": 9
+    "restaurants": 1,
+    "types": 11
   },
   "settings": {
     "minTime": 0
   },
-  "restaurants": [],
+  "restaurants": [
+    {
+      "name": "Opplebaes",
+      "typeId": 1,
+      "minutesWalking": 5,
+      "lastVisited": "2018-05-28",
+      "id": 1
+    }
+  ],
   "types": [
     {
       "id": 1,
@@ -21,12 +29,20 @@
       "type": "Fast Food"
     },
     {
+      "id": 4,
+      "type": "Asian"
+    },
+    {
       "id": 5,
       "type": "Mexican"
     },
     {
       "id": 6,
       "type": "Sandwichy"
+    },
+    {
+      "id": 7,
+      "type": "BBQ"
     },
     {
       "id": 8,
