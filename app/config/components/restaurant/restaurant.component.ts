@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+import { switchMap } from "rxjs/operators";
+
 import { Restaurant } from "../../../models/restaurant.interface";
 import { RestaurantService } from "../../../services/restaurant.service";
 
@@ -21,9 +23,9 @@ export class RestaurantComponent {
   }
 
   delete(item: Restaurant) {
-    this.service.deleteRestaurant(item).subscribe(data => console.log(data));
-    this.service.getRestaurants().subscribe(data => (this.data = data));
-
-    console.log(this.data);
+    this.service
+      .deleteRestaurant(item)
+      .pipe(switchMap(data => this.service.getRestaurants()))
+      .subscribe(data => (this.data = data));
   }
 }

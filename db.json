@@ -5,11 +5,11 @@
   },
   "restaurants": [
     {
-      "id": 1,
-      "name": "Applebees",
+      "name": "Opplebaes",
       "typeId": 1,
       "minutesWalking": 5,
-      "lastVisited": 0
+      "lastVisited": 0,
+      "id": 1
     }
   ],
   "types": [
