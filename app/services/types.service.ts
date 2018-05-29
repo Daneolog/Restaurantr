@@ -28,7 +28,7 @@ export class TypesService {
       switchMap(data => {
         let newType = { ...type, id: data.json()["types"] };
         return this.http
-          .post(`${TYPES_API}`, type)
+          .post(`${TYPES_API}`, newType)
           .pipe(map(response => response.json()));
       })
     );

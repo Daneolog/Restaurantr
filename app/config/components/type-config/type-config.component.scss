@@ -1,0 +1,38 @@
+button.rowbutton {
+  background-color: white;
+  cursor: default;
+  margin: 0 auto;
+  display: block;
+
+  &:hover {
+    background-color: rgb(209, 209, 209);
+  }
+
+  &:active {
+    background-color: rgb(121, 121, 121);
+  }
+}
+
+img {
+    width: 30px;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+th {
+    font-weight: bold;
+}
+  
+tr {
+    border-width: 0px 0px 1px 0px;
+    border-style: solid;
+    border-color: black;
+}
+  
+td {
+    padding: 5px 5px 5px 5px;
+}
