@@ -1,11 +1,7 @@
 {
   "name": "restaurantr",
   "version": "0.1.0",
-  "description": "Ultimate Angular: Angular Fundamentals Seed",
-  "repository": {
-    "url": "git@github.com:UltimateAngular/angular-fundamentals-seed.git",
-    "type": "git"
-  },
+  "description": "Lunch Finder Application",
   "license": "MIT",
   "author": "CP Interns",
   "dependencies": {
@@ -17,6 +13,10 @@
     "@angular/platform-browser": "6.0.3",
     "@angular/platform-browser-dynamic": "6.0.3",
     "@angular/router": "6.0.3",
+    "@ngrx/effects": "6.0.1",
+    "@ngrx/router-store": "6.0.1",
+    "@ngrx/store": "6.0.1",
+    "@ngrx/store-devtools": "6.0.1",
     "reflect-metadata": "0.1.12",
     "rxjs": "6.2.0",
     "ts-helpers": "1.1.2",
