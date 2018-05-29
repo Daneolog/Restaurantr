@@ -1,6 +1,6 @@
 {
   "ids": {
-    "restaurants": 8,
+    "restaurants": 30,
     "types": 11
   },
   "settings": {
@@ -48,9 +48,160 @@
       "minutesWalking": 20,
       "lastVisited": "2018-05-29T18:16:08.364Z",
       "id": 8
+    },
+    {
+      "name": "Chuy's",
+      "typeId": "5",
+      "minutesWalking": 15,
+      "lastVisited": "2018-05-29T18:20:27.164Z",
+      "id": 9
+    },
+    {
+      "name": "Corner Bakery",
+      "typeId": "6",
+      "minutesWalking": 5,
+      "lastVisited": "2018-05-29T18:21:42.369Z",
+      "id": 10
+    },
+    {
+      "name": "Jason's Deli",
+      "typeId": "6",
+      "minutesWalking": 10,
+      "lastVisited": "2018-05-29T18:23:14.252Z",
+      "id": 12
+    },
+    {
+      "name": "Napoli",
+      "typeId": "10",
+      "minutesWalking": 60,
+      "lastVisited": null,
+      "id": 13
+    },
+    {
+      "name": "McDonalds",
+      "typeId": "3",
+      "minutesWalking": 10,
+      "lastVisited": "2018-05-29T18:23:32.484Z",
+      "id": 14
+    },
+    {
+      "name": "Your Pie",
+      "typeId": "10",
+      "minutesWalking": 15,
+      "lastVisited": null,
+      "id": 15
+    },
+    {
+      "name": "Willys",
+      "typeId": "3",
+      "minutesWalking": 30,
+      "lastVisited": null,
+      "id": 16
+    },
+    {
+      "name": "Memphis BBQ",
+      "typeId": "7",
+      "minutesWalking": 20,
+      "lastVisited": "2018-05-29T18:23:42.470Z",
+      "id": 17
+    },
+    {
+      "name": "Wild Wing Cafe",
+      "typeId": "1",
+      "minutesWalking": 15,
+      "lastVisited": null,
+      "id": 18
+    },
+    {
+      "name": "Moes",
+      "typeId": "5",
+      "minutesWalking": 40,
+      "lastVisited": "2018-05-29T18:23:49.366Z",
+      "id": 19
+    },
+    {
+      "name": "Viceroy",
+      "typeId": "9",
+      "minutesWalking": 10,
+      "lastVisited": null,
+      "id": 20
+    },
+    {
+      "name": "Tin Lizzy's",
+      "typeId": "5",
+      "minutesWalking": 15,
+      "lastVisited": null,
+      "id": 21
+    },
+    {
+      "name": "Olive Garden",
+      "typeId": "2",
+      "minutesWalking": 10,
+      "lastVisited": "2018-05-29T18:24:10.191Z",
+      "id": 22
+    },
+    {
+      "name": "Tin Drum",
+      "typeId": "4",
+      "minutesWalking": 15,
+      "lastVisited": null,
+      "id": 23
+    },
+    {
+      "name": "Outback",
+      "typeId": 1,
+      "minutesWalking": 10,
+      "lastVisited": "2018-05-29T18:24:21.061Z",
+      "id": 24
+    },
+    {
+      "name": "The Bird",
+      "typeId": "1",
+      "minutesWalking": 10,
+      "lastVisited": null,
+      "id": 25
+    },
+    {
+      "name": "Taki",
+      "typeId": "4",
+      "minutesWalking": 5,
+      "lastVisited": null,
+      "id": 26
+    },
+    {
+      "name": "Panera",
+      "typeId": "6",
+      "minutesWalking": 15,
+      "lastVisited": "2018-05-29T18:24:31.469Z",
+      "id": 27
+    },
+    {
+      "name": "Taco Mac",
+      "typeId": "1",
+      "minutesWalking": 15,
+      "lastVisited": null,
+      "id": 28
+    },
+    {
+      "name": "Pita",
+      "typeId": "8",
+      "minutesWalking": 5,
+      "lastVisited": "2018-05-29T18:24:43.445Z",
+      "id": 29
+    },
+    {
+      "name": "Subway",
+      "typeId": "6",
+      "minutesWalking": 10,
+      "lastVisited": null,
+      "id": 30
     }
   ],
   "types": [
+    {
+      "id": 1,
+      "type": "Misc. Food"
+    },
     {
       "id": 2,
       "type": "Italian"
