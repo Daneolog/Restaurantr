@@ -1,6 +1,6 @@
 {
   "ids": {
-    "restaurants": 2,
+    "restaurants": 8,
     "types": 11
   },
   "settings": {
@@ -8,18 +8,46 @@
   },
   "restaurants": [
     {
-      "name": "Opplebaes",
+      "name": "Boneheads",
       "typeId": 1,
-      "minutesWalking": 5,
-      "lastVisited": "2018-05-29T17:47:54.335Z",
-      "id": 1
+      "minutesWalking": 15,
+      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "id": 3
     },
     {
-      "name": "Chuy's",
+      "name": "California Pizza Kitchen",
+      "typeId": "2",
+      "minutesWalking": 5,
+      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "id": 4
+    },
+    {
+      "name": "Carrabas",
+      "typeId": "2",
+      "minutesWalking": 20,
+      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "id": 5
+    },
+    {
+      "name": "Chick-fil-A",
+      "typeId": "3",
+      "minutesWalking": 20,
+      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "id": 6
+    },
+    {
+      "name": "Chin Chin",
+      "typeId": "4",
+      "minutesWalking": 35,
+      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "id": 7
+    },
+    {
+      "name": "Chipotle",
       "typeId": "5",
       "minutesWalking": 20,
-      "lastVisited": "2018-05-29T17:55:56.628Z",
-      "id": 2
+      "lastVisited": "2018-05-29T18:16:08.364Z",
+      "id": 8
     }
   ],
   "types": [
