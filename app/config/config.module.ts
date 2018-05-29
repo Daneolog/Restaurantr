@@ -11,6 +11,7 @@ import { ConfigComponent } from "./components/config.component";
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
 import { RestaurantFormComponent } from "./components/restaurant-form/restaurant-form.component";
 import { TypeConfigComponent } from "./components/type-config/type-config.component";
+import { TypesService } from "../services/types.service";
 
 const routes: Routes = [
   {
@@ -37,6 +38,6 @@ const routes: Routes = [
     FormsModule
   ],
   exports: [],
-  providers: [RestaurantService, IdsService]
+  providers: [RestaurantService, TypesService, IdsService]
 })
 export class ConfigModule {}
