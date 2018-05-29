@@ -11,4 +11,5 @@
   <br/>
   <button *ngIf="rLoaded && sLoaded" type="submit">Where Should I Go?</button>
 </form>
+{{restaurants$ | async }}
 <restaurant-information [restaurant]="restaurant" (updateEvent)="handleUpdate($event)"></restaurant-information>
