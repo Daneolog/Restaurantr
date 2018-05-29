@@ -4,6 +4,7 @@ import { switchMap } from "rxjs/operators";
 
 import { Restaurant } from "../../../models/restaurant.interface";
 import { RestaurantService } from "../../../services/restaurant.service";
+import { Observable, interval } from "rxjs";
 
 @Component({
   selector: "restaurant",
@@ -19,7 +20,9 @@ export class RestaurantComponent {
   name;
 
   constructor(private service: RestaurantService) {
-    this.service.getRestaurants().subscribe(data => (this.data = data));
+    interval(500)
+      .pipe(switchMap(data => this.service.getRestaurants()))
+      .subscribe(data => (this.data = data));
   }
 
   delete(item: Restaurant) {

@@ -52,10 +52,6 @@
   ],
   "types": [
     {
-      "id": 1,
-      "type": "Misc. Food"
-    },
-    {
       "id": 2,
       "type": "Italian"
     },
