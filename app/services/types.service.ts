@@ -23,16 +23,16 @@ export class TypesService {
       .pipe(map((response: Response) => response.json()));
   }
 
-  // addType(type: RestaurantType): Observable<RestaurantType> {
-  //   return this.ids.incrementTypeId().pipe(
-  //     switchMap(data => {
-  //       let newType = { ...type, id: data.json()["types"] };
-  //       return this.http
-  //         .post(`${TYPES_API}`, type)
-  //         .pipe(map(response => response.json()));
-  //     })
-  //   );
-  // }
+  addType(type: RestaurantType): Observable<RestaurantType> {
+    return this.ids.incrementTypeId().pipe(
+      switchMap(data => {
+        let newType = { ...type, id: data.json()["types"] };
+        return this.http
+          .post(`${TYPES_API}`, newType)
+          .pipe(map(response => response.json()));
+      })
+    );
+  }
 
   updateRestaurant(type: RestaurantType): Observable<RestaurantType> {
     return this.http
@@ -40,13 +40,9 @@ export class TypesService {
       .pipe(map((response: Response) => response.json()));
   }
 
-  // deleteRestaurant(type: RestaurantType): Observable<RestaurantType> {
-  //   return this.ids.decrementTypeId().pipe(
-  //     switchMap(data => {
-  //       return this.http
-  //         .delete(`${TYPES_API}/${type.id}`)
-  //         .pipe(map(response => response.json()));
-  //     })
-  //   );
-  // }
+  deleteRestaurant(type: RestaurantType): Observable<RestaurantType> {
+    return this.http
+      .delete(`${TYPES_API}/${type.id}`)
+      .pipe(map(response => response.json()));
+  }
 }
