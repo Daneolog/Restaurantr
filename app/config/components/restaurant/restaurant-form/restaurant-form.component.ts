@@ -12,6 +12,7 @@ import { RestaurantType } from "../../../../models/restaurant-type.interface";
 
 import { switchMap } from "rxjs/operators";
 import { RestaurantService } from "../../../../services/restaurant.service";
+import { TypesService } from "../../../../services/types.service";
 
 @Component({
   selector: "restaurant-form",
@@ -36,7 +37,8 @@ export class RestaurantFormComponent implements OnInit {
   ];
 
   constructor(
-    private service: RestaurantService,
+    private rService: RestaurantService,
+    private tService: TypesService,
     private router: Router,
     private route: ActivatedRoute,
     private location: Location
@@ -49,7 +51,7 @@ export class RestaurantFormComponent implements OnInit {
       this.editing = true;
 
       let id = params["id"];
-      this.service
+      this.rService
         .getRestaurant(id)
         .subscribe(data => (this.restaurant = data));
     } else if (convertToParamMap(params).has("name")) {
@@ -69,10 +71,12 @@ export class RestaurantFormComponent implements OnInit {
     if (this.editing) {
       console.log("editing");
       value = { ...value, id: this.restaurant.id };
-      this.service.updateRestaurant(value).subscribe(data => console.log(data));
+      this.rService
+        .updateRestaurant(value)
+        .subscribe(data => console.log(data));
     } else {
       console.log("adding");
-      this.service.addRestaurant(value).subscribe(data => console.log(data));
+      this.rService.addRestaurant(value).subscribe(data => console.log(data));
     }
   }
 
