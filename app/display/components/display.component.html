@@ -1,2 +1,14 @@
-<h1>Hello world</h1>
-<button *ngIf="rLoaded && sLoaded" (click)="log()">Compute Restaurant</button>
+<h1>Restaurantr</h1>
+<p>Select a restaurant type below (or leave it blank!) in order to figure out where to go.</p>
+<form (ngSubmit)="submit(form.value)" #form="ngForm" novalidate>
+  Type:
+  <select name="typeId" [ngModel]="restaurant?.typeId">
+    <option *ngFor="let choice of types" [value]="choice.id">
+      {{choice.type}}
+    </option>
+  </select>
+  <br/>
+  <br/>
+  <button *ngIf="rLoaded && sLoaded" type="submit">Where Should I Go?</button>
+</form>
+<restaurant-information [restaurant]="restaurant" (updateEvent)="handleUpdate($event)"></restaurant-information>

@@ -4,14 +4,14 @@
     "types": 11
   },
   "settings": {
-    "minTime": 5
+    "minTime": 0
   },
   "restaurants": [
     {
       "name": "Opplebaes",
       "typeId": 1,
       "minutesWalking": 5,
-      "lastVisited": "2018-05-28",
+      "lastVisited": "2018-05-29T17:40:04.901Z",
       "id": 1
     }
   ],

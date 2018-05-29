@@ -13,14 +13,17 @@ import { switchMap } from "rxjs/operators";
 export class DisplayComponent implements OnInit {
   constructor(
     private rService: RestaurantService,
-    private types: TypesService,
+    private tService: TypesService,
     private sService: SettingsService
   ) {}
 
   restaurants: Restaurant[];
+  restaurant: Restaurant;
   settings: any[];
+  types: RestaurantType[] = [{ id: 0, type: "Any" }];
   rLoaded: boolean = false;
   sLoaded: boolean = false;
+  tLoaded: boolean = false;
 
   ngOnInit() {
     this.rService.getRestaurants().subscribe((data: Restaurant[]) => {
@@ -31,13 +34,21 @@ export class DisplayComponent implements OnInit {
       this.sLoaded = true;
       this.settings = data;
     });
+    this.tService.getTypes().subscribe((data: RestaurantType[]) => {
+      this.tLoaded = true;
+      this.types = [...this.types, ...data];
+    });
+  }
+
+  submit(formValue) {
+    this.restaurant = this.computeRestaurant(formValue.typeId);
   }
 
   computeRestaurant(typeId: number): Restaurant {
     return this.restaurants
       .filter((restaurant: Restaurant) => {
         return (
-          restaurant.typeId === typeId &&
+          (restaurant.typeId == typeId || typeId == null || typeId == 0) &&
           new Date().getTime() - Date.parse(String(restaurant.lastVisited)) >
             this.settings["minTime"] * 86400000
         );
@@ -48,9 +59,14 @@ export class DisplayComponent implements OnInit {
       )[0];
   }
 
-  log() {
-    console.log(this.restaurants);
-    console.log(this.settings);
-    console.log(this.computeRestaurant(1));
+  handleUpdate(event: Restaurant) {
+    this.rService.updateRestaurant(event).subscribe((data: Restaurant) => {
+      this.restaurants.map((restaurant: Restaurant) => {
+        if (restaurant.id === event.id) {
+          restaurant = Object.assign({}, restaurant, event);
+        }
+        return restaurant;
+      });
+    });
   }
 }
