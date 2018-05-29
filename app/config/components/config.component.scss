@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  vertical-align: top;
+}
+
+td {
+  // width: 250px;
+  padding: 0 20px 10px;
+  border-width: 0 1px 0 0;
+  border-style: solid;
+  border-color: rgb(180, 180, 180);
+
+  &:last-of-type {
+    border: 0;
+  }
+}

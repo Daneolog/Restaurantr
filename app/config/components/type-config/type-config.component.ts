@@ -9,22 +9,27 @@ import { FormsModule } from "@angular/forms";
   styleUrls: ["type-config.component.scss"]
 })
 export class TypeConfigComponent {
+  @Input() typetoAdd: string;
+  name: string = "Alex";
+  types: string[] = [];
 
-    @Input() 
-    typetoAdd: string;
-    name: string = 'Alex';
-    types: string[] = [];
+  typeLists: RestaurantType[] = [
+    {
+      id: 0,
+      type: "Misc."
+    },
+    {
+      id: 1,
+      type: "Italian"
+    },
+    {
+      id: 2,
+      type: "FastFood"
+    }
+  ];
 
-    typeLists: RestaurantType[] = [{
-        type: 'Misc.'
-    }, {
-        type: 'Italian'
-    }, {
-        type: 'FastFood'
-    }]
-
-     addType(event: any): void {
-         this.name = event.target.value;
-         this.types = [...this.types,this.name];
-     }
+  addType(event: any): void {
+    this.name = event.target.value;
+    this.types = [...this.types, this.name];
+  }
 }

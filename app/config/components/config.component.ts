@@ -7,6 +7,7 @@ import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-config",
+  styleUrls: ["config.component.scss"],
   templateUrl: "config.component.html"
 })
 export class ConfigComponent {

@@ -9,8 +9,10 @@ import { IdsService } from "../services/ids.service";
 
 import { ConfigComponent } from "./components/config.component";
 import { RestaurantComponent } from "./components/restaurant/restaurant.component";
-import { RestaurantFormComponent } from "./components/restaurant-form/restaurant-form.component";
+import { RestaurantFormComponent } from "./components/restaurant/restaurant-form/restaurant-form.component";
 import { TypeConfigComponent } from "./components/type-config/type-config.component";
+import { SettingsComponent } from "./components/settings/settings.component";
+import { SettingsService } from "../services/settings.service";
 
 const routes: Routes = [
   {
@@ -28,7 +30,8 @@ const routes: Routes = [
     ConfigComponent,
     RestaurantComponent,
     RestaurantFormComponent,
-    TypeConfigComponent
+    TypeConfigComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,6 @@ const routes: Routes = [
     FormsModule
   ],
   exports: [],
-  providers: [RestaurantService, IdsService]
+  providers: [RestaurantService, IdsService, SettingsService]
 })
 export class ConfigModule {}

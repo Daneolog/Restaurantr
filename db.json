@@ -3,6 +3,9 @@
     "restaurants": 1,
     "types": 11
   },
+  "settings": {
+    "minTime": 19
+  },
   "restaurants": [
     {
       "name": "Opplebaes",

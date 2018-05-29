@@ -1,0 +1,10 @@
+<form (ngSubmit)="submit(form.value)" #form="ngForm" style="width: 100%" novalidate>
+  <h1>Settings</h1>
+
+  Minimum time between restaurants:
+  <input name="minTime" type="number" style="width: 50px" [ngModel]="settings?.minTime"> days
+  <br>
+
+  <button type="submit">Submit</button>
+</form>
+<button type="reset" (click)="reset()">Reset</button>

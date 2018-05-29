@@ -7,11 +7,11 @@ import {
 } from "@angular/router";
 import { Location } from "@angular/common";
 
-import { Restaurant } from "../../../models/restaurant.interface";
-import { RestaurantType } from "../../../models/restaurant-type.interface";
-import { RestaurantService } from "../../../services/restaurant.service";
+import { Restaurant } from "../../../../models/restaurant.interface";
+import { RestaurantType } from "../../../../models/restaurant-type.interface";
 
 import { switchMap } from "rxjs/operators";
+import { RestaurantService } from "../../../../services/restaurant.service";
 
 @Component({
   selector: "restaurant-form",
