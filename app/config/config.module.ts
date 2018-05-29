@@ -21,6 +21,7 @@ const routes: Routes = [
     children: [
       { path: "", component: ConfigComponent },
       { path: "add/:name", component: RestaurantFormComponent },
+      { path: "add", component: RestaurantFormComponent },
       { path: "edit/:id", component: RestaurantFormComponent }
     ]
   }
