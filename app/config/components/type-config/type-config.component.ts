@@ -13,20 +13,7 @@ export class TypeConfigComponent {
   name: string = "Alex";
   types: string[] = [];
 
-  typeLists: RestaurantType[] = [
-    {
-      id: 0,
-      type: "Misc."
-    },
-    {
-      id: 1,
-      type: "Italian"
-    },
-    {
-      id: 2,
-      type: "FastFood"
-    }
-  ];
+  typeLists: RestaurantType[] = [];
 
   addType(event: any): void {
     this.name = event.target.value;
