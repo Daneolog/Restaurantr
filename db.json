@@ -1,6 +1,6 @@
 {
   "ids": {
-    "restaurants": 1,
+    "restaurants": 2,
     "types": 11
   },
   "settings": {
@@ -11,8 +11,15 @@
       "name": "Opplebaes",
       "typeId": 1,
       "minutesWalking": 5,
-      "lastVisited": "2018-05-29T17:40:04.901Z",
+      "lastVisited": "2018-05-29T17:47:54.335Z",
       "id": 1
+    },
+    {
+      "name": "Chuy's",
+      "typeId": "5",
+      "minutesWalking": 20,
+      "lastVisited": "2018-05-29T17:55:56.628Z",
+      "id": 2
     }
   ],
   "types": [

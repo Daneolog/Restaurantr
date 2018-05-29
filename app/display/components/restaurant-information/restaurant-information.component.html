@@ -1,7 +1,10 @@
-<h3 *ngIf="restaurant">You should go to: {{ restaurant?.name }}</h3>
-<p *ngIf="restaurant">Last Visited: {{ restaurant?.lastVisited | date }} </p>
-<p *ngIf="restaurant">
-  <button (click)="visit()">Mark Visited Today</button>
-</p>
+<div *ngIf="restaurant">
+  <h3>You should go to: {{ restaurant?.name }}</h3>
+  <p>Last Visited: {{ restaurant?.lastVisited | date }} </p>
+  <p>Walking Time (minutes): {{ restaurant?.minutesWalking }} </p>
+  <p>
+    <button (click)="visit()">Mark Visited Today</button>
+  </p>
+</div>
 
 <h3 *ngIf="!restaurant">No restaurants matched your criteria</h3>

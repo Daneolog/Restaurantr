@@ -48,22 +48,8 @@ export class RestaurantService {
   }
 
   deleteRestaurant(restaurant: Restaurant): Observable<Restaurant> {
-    return this.ids.decrementRestaurantId().pipe(
-      switchMap(data => {
-        console.log(
-          "decremented successfully, # of restaurants now at",
-          data.json()["restaurants"]
-        );
-
-        console.log("deleting restaurant", restaurant);
-        return this.http
-          .delete(`${RESTAURANT_API}/${restaurant.id}`)
-          .pipe(map(response => response.json()));
-      })
-    );
-
-    // return this.http
-    //   .delete(`${RESTAURANT_API}/${restaurant.id}`)
-    //   .pipe(map((response: Response) => response.json()));
+    return this.http
+      .delete(`${RESTAURANT_API}/${restaurant.id}`)
+      .pipe(map(response => response.json()));
   }
 }

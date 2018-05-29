@@ -27,28 +27,10 @@ export class IdsService {
     );
   }
 
-  decrementRestaurantId(): Observable<Response> {
-    return this.getLatestIds().pipe(
-      switchMap(data => {
-        let counter = data["restaurants"] - 1;
-        return this.http.put(`${ID_API}`, { ...data, restaurants: counter });
-      })
-    );
-  }
-
   incrementTypeId(): Observable<Response> {
     return this.getLatestIds().pipe(
       switchMap(data => {
         let counter = data["types"] + 1;
-        return this.http.put(`${ID_API}`, { ...data, types: counter });
-      })
-    );
-  }
-
-  decrementTypeId(): Observable<Response> {
-    return this.getLatestIds().pipe(
-      switchMap(data => {
-        let counter = data["types"] - 1;
         return this.http.put(`${ID_API}`, { ...data, types: counter });
       })
     );
