@@ -8,6 +8,7 @@ import { Store } from "@ngrx/store";
 import * as fromStore from "../../store";
 import { switchMap } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { Settings } from "../../models/settings.interface";
 
 @Component({
   selector: "app-display",
@@ -23,7 +24,7 @@ export class DisplayComponent implements OnInit {
   ) {}
 
   restaurant: Restaurant;
-  settings: any[];
+  settings: Settings;
   types: RestaurantType[] = [{ id: 0, type: "Any" }];
   rLoaded: boolean = false;
   sLoaded: boolean = false;
@@ -33,7 +34,7 @@ export class DisplayComponent implements OnInit {
     this.restaurants$ = this.store.select(fromStore.getAllRestaurants);
     this.store.dispatch(new fromStore.LoadRestaurants());
 
-    this.sService.getSettings().subscribe((data: any[]) => {
+    this.sService.getSettings().subscribe((data: Settings) => {
       this.sLoaded = true;
       this.settings = data;
     });
