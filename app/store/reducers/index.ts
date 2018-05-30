@@ -5,6 +5,13 @@ import {
 } from "@ngrx/store";
 
 import * as restaurants from "./restaurants.reducer";
+import * as fromRouter from "@ngrx/router-store";
+import {
+  Params,
+  RouterState,
+  RouterStateSnapshot,
+  ActivatedRouteSnapshot
+} from "@angular/router";
 
 export interface MainState {
   restaurants: restaurants.RestaurantState;
@@ -16,29 +23,34 @@ export const reducers: ActionReducerMap<MainState> = {
 
 export const getMainState = createFeatureSelector<MainState>("main");
 
-export const getRestaurantState = createSelector(
-  getMainState,
-  (state: MainState) => state.restaurants
-);
+export interface RouterStateUrl {
+  url: string;
+  queryParams: Params;
+  params: Params;
+}
 
-export const getRestaurantEntities = createSelector(
-  getRestaurantState,
-  restaurants.getRestaurantEntities
-);
+export interface State {
+  routerReducer: fromRouter.RouterReducerState<RouterStateUrl>;
+}
 
-export const getAllRestaurants = createSelector(
-  getRestaurantEntities,
-  entities => {
-    return Object.keys(entities).map(id => entities[parseInt(id, 10)]);
+export const rootReducers: ActionReducerMap<State> = {
+  routerReducer: fromRouter.routerReducer
+};
+
+export const getRouterState = createFeatureSelector<
+  fromRouter.RouterReducerState<RouterStateUrl>
+>("routerReducer");
+
+export class CustomSerializer
+  implements fromRouter.RouterStateSerializer<RouterStateUrl> {
+  serialize(routerState: RouterStateSnapshot): RouterStateUrl {
+    const { url } = routerState;
+    const { queryParams } = routerState.root;
+    let state: ActivatedRouteSnapshot = routerState.root;
+    while (state.firstChild) {
+      state = state.firstChild;
+    }
+    const { params } = state;
+    return { url, queryParams, params };
   }
-);
-
-export const getRestaurantsLoaded = createSelector(
-  getRestaurantState,
-  restaurants.getRestaurantsLoaded
-);
-
-export const getRestaurantsLoading = createSelector(
-  getRestaurantState,
-  restaurants.getRestaurantsLoading
-);
+}

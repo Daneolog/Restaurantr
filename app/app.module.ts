@@ -15,6 +15,13 @@ import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { HttpModule } from "@angular/http";
 import { HttpClientModule } from "@angular/common/http";
 
+import { rootReducers, CustomSerializer } from "./store";
+
+import {
+  StoreRouterConnectingModule,
+  RouterStateSerializer
+} from "@ngrx/router-store";
+
 const routes: Routes = [
   { path: "", redirectTo: "display", pathMatch: "full" },
   { path: "display", component: DisplayComponent },
@@ -37,12 +44,14 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     DisplayModule,
     RouterModule.forRoot(routes),
     CommonModule,
-    StoreModule.forRoot({}, { metaReducers }),
+    StoreModule.forRoot(rootReducers, { metaReducers }),
     EffectsModule.forRoot([]),
     HttpModule,
     HttpClientModule,
+    StoreRouterConnectingModule,
     environment.development ? StoreDevtoolsModule.instrument() : []
   ],
+  providers: [{ provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent],
   declarations: [AppComponent]
 })
