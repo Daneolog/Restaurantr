@@ -11,7 +11,7 @@
       "name": "Boneheads",
       "typeId": 1,
       "minutesWalking": 15,
-      "lastVisited": "2018-05-28T14:18:53.007Z",
+      "lastVisited": "2018-05-30T14:45:59.035Z",
       "id": 3
     },
     {
@@ -25,7 +25,7 @@
       "name": "Carrabas",
       "typeId": "2",
       "minutesWalking": 20,
-      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "lastVisited": "2018-05-30T14:47:30.774Z",
       "id": 5
     },
     {
@@ -39,7 +39,7 @@
       "name": "Chin Chin",
       "typeId": "4",
       "minutesWalking": 35,
-      "lastVisited": "2018-05-29T18:13:02.620Z",
+      "lastVisited": "2018-05-30T14:47:45.941Z",
       "id": 7
     },
     {
@@ -60,14 +60,14 @@
       "name": "Corner Bakery",
       "typeId": "6",
       "minutesWalking": 5,
-      "lastVisited": "2018-05-29T18:21:42.369Z",
+      "lastVisited": "2018-05-30T14:47:49.197Z",
       "id": 10
     },
     {
       "name": "Jason's Deli",
       "typeId": "6",
       "minutesWalking": 10,
-      "lastVisited": "2018-05-29T18:23:14.252Z",
+      "lastVisited": "2018-05-30T14:47:53.053Z",
       "id": 12
     },
     {
@@ -81,7 +81,7 @@
       "name": "McDonalds",
       "typeId": "3",
       "minutesWalking": 10,
-      "lastVisited": "2018-05-29T18:23:32.484Z",
+      "lastVisited": "2018-05-30T14:48:45.525Z",
       "id": 14
     },
     {

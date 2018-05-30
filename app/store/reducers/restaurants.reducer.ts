@@ -49,6 +49,31 @@ export function reducer(
         loaded: false
       };
     }
+    case restaurantsActions.UPDATE_RESTAURANT: {
+      return {
+        ...state,
+        loading: true,
+        loaded: false
+      };
+    }
+    case restaurantsActions.UPDATE_RESTAURANT_SUCCESS: {
+      const restaurant = action.payload;
+      const entity = { [restaurant.id]: restaurant };
+      const entities = { ...state.entities, ...entity };
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities
+      };
+    }
+    case restaurantsActions.UPDATE_RESTAURANT_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false
+      };
+    }
   }
   return state;
 }

@@ -32,4 +32,23 @@ export class RestaurantsEffect {
           );
       })
     );
+
+  @Effect()
+  updateRestaurant$ = this.actions$
+    .ofType(restaurantsActions.UPDATE_RESTAURANT)
+    .pipe(
+      switchMap((action: restaurantsActions.UpdateRestaurant) => {
+        return this.rService
+          .updateRestaurant(action.payload)
+          .pipe(
+            map(
+              restaurant =>
+                new restaurantsActions.UpdateRestaurantSuccess(restaurant)
+            ),
+            catchError(error =>
+              of(new restaurantsActions.UpdateRestaurantFail(error))
+            )
+          );
+      })
+    );
 }

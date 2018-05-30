@@ -66,9 +66,6 @@ export class DisplayComponent implements OnInit {
   }
 
   handleUpdate(event: Restaurant) {
-    console.log("Event: ", event);
-    this.restaurants$
-      .pipe(switchMap(() => this.rService.updateRestaurant(event)))
-      .subscribe();
+    this.store.dispatch(new fromStore.UpdateRestaurant(event));
   }
 }
