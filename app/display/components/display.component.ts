@@ -19,6 +19,7 @@ export class DisplayComponent implements OnInit {
 
   constructor(
     private store: Store<fromStore.MainState>,
+    private rService: RestaurantService,
     private tService: TypesService,
     private sService: SettingsService
   ) {}
@@ -26,7 +27,6 @@ export class DisplayComponent implements OnInit {
   restaurant: Restaurant;
   settings: Settings;
   types: RestaurantType[] = [{ id: 0, type: "Any" }];
-  rLoaded: boolean = false;
   sLoaded: boolean = false;
   tLoaded: boolean = false;
 
@@ -45,32 +45,30 @@ export class DisplayComponent implements OnInit {
   }
 
   submit(formValue) {
-    // this.restaurant = this.computeRestaurant(formValue.typeId);
+    this.restaurants$.subscribe((restaurants: Restaurant[]) => {
+      let newRest: Restaurant = restaurants
+        .filter((restaurant: Restaurant) => {
+          return (
+            (restaurant.typeId == formValue.typeId ||
+              formValue.typeId == null ||
+              formValue.typeId == 0) &&
+            new Date().getTime() - Date.parse(String(restaurant.lastVisited)) >
+              this.settings["minTime"] * 86400000
+          );
+        })
+        .sort(
+          (a: Restaurant, b: Restaurant) =>
+            Date.parse(String(a.lastVisited)) -
+            Date.parse(String(b.lastVisited))
+        )[0];
+      this.restaurant = Object.assign({}, newRest);
+    });
   }
 
-  // computeRestaurant(typeId: number): Restaurant {
-  //   return this.restaurants
-  //     .filter((restaurant: Restaurant) => {
-  //       return (
-  //         (restaurant.typeId == typeId || typeId == null || typeId == 0) &&
-  //         new Date().getTime() - Date.parse(String(restaurant.lastVisited)) >
-  //           this.settings["minTime"] * 86400000
-  //       );
-  //     })
-  //     .sort(
-  //       (a: Restaurant, b: Restaurant) =>
-  //         Date.parse(String(a.lastVisited)) - Date.parse(String(b.lastVisited))
-  //     )[0];
-  // }
-
-  // handleUpdate(event: Restaurant) {
-  //   this.rService.updateRestaurant(event).subscribe((data: Restaurant) => {
-  //     this.restaurants.map((restaurant: Restaurant) => {
-  //       if (restaurant.id === event.id) {
-  //         restaurant = Object.assign({}, restaurant, event);
-  //       }
-  //       return restaurant;
-  //     });
-  //   });
-  // }
+  handleUpdate(event: Restaurant) {
+    console.log("Event: ", event);
+    this.restaurants$
+      .pipe(switchMap(() => this.rService.updateRestaurant(event)))
+      .subscribe();
+  }
 }

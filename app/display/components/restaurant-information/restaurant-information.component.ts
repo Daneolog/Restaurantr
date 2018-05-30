@@ -12,9 +12,7 @@ export class RestaurantInformationComponent {
   updateEvent: EventEmitter<Restaurant> = new EventEmitter<Restaurant>();
 
   visit() {
-    this.restaurant = Object.assign(this.restaurant, {
-      lastVisited: new Date()
-    });
+    this.restaurant.lastVisited = new Date();
     this.updateEvent.emit(this.restaurant);
   }
 }

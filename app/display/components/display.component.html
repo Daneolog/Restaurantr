@@ -9,7 +9,7 @@
   </select>
   <br/>
   <br/>
-  <button *ngIf="rLoaded && sLoaded" type="submit">Where Should I Go?</button>
+  <button *ngIf="sLoaded" type="submit">Where Should I Go?</button>
 </form>
 
 <restaurant-information [restaurant]="restaurant" (updateEvent)="handleUpdate($event)"></restaurant-information>
